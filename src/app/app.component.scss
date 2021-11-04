@@ -64,3 +64,28 @@
         }
     }
 }
+
+
+// Buttons
+.custom-button{
+    width: fit-content;
+    height: fit-content;
+    cursor: pointer;
+    display: flex;
+    padding: 10px 10px;
+    .button-text{
+        margin-right: 20px;
+        font-family: Roboto, Arial, Helvetica, sans-serif;
+
+    }
+    
+}
+.custom-button-green{
+    background: #019D7A;
+}
+.custom-button-rounded-right{
+    border-bottom-right-radius: 15px;
+}
+
+
+// 
