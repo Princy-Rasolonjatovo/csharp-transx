@@ -143,37 +143,7 @@
             display: flex;
             flex-direction: row;
             align-items: center;
-            cursor: pointer;
-            .list-item-text{
-                color: #3C3C3C;
-                margin-right: 5px;
-                font-family: Roboto, Arial, Helvetica, sans-serif;
-                font-weight: 600;
-                font-size: .89em;
-                text-transform: uppercase;
-                border-bottom: 2px solid transparent;
-                padding: 10px 0px;
-            }
-            .list-item-icon{
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                svg{
-                    transform: scale(.7);
-                }
-            }
-        }
-        .list-item:hover{
-            .list-item-text{
-                color: #35A992;
-                border-bottom: 2px solid #35A992;
-            }
-        }
-        .list-item-active{
-            .list-item-text{
-                color: #35A992;
-                border-bottom: 2px solid #35A992;
-            }
+            
         }
     }
 
