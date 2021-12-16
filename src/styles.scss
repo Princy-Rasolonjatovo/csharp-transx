@@ -9,10 +9,39 @@
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 
+
+// custom palette
+$transx-primary-palette:(
+  50: #e0f3ef,
+  100: #b3e2d5,
+  200:#82cfbb,
+  300:#50bca1,
+  400: #29ac8d,
+  500: #019d7b,
+  600: #00906f,
+  700: #007f60,
+  800: #006f52,
+  900: #005337,
+  contrast:(
+    50: #869794,
+    100: #709d91,
+    200:#56a290,
+    300:#50bca1,
+    400: #00876e,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  )
+);
+
+
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$transx-primary: mat.define-palette(mat.$indigo-palette);
+// $transx-primary: mat.define-palette(mat.$indigo-palette);
+$transx-primary: mat.define-palette($transx-primary-palette, 500);
 $transx-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
