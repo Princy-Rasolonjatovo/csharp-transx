@@ -25,10 +25,25 @@
                 </button>
 			</div>
 			<div class="list-item">
-                <button mat-flat-button>
+                <button mat-flat-button [matMenuTriggerFor]="service_menu">
                     SERVICES
                     <mat-icon >expand_more</mat-icon>
                 </button>
+				<mat-menu #service_menu>
+					<button routerLink="/invoices" mat-menu-item>
+						<mat-icon>receipt</mat-icon>
+						Invoices
+						
+					</button>
+					<button mat-menu-item>
+						<mat-icon>local_shipping</mat-icon>
+						Shipping
+					</button>
+					<button mat-menu-item>
+						<mat-icon color="accent">map</mat-icon>
+						Delivery Tracking
+					</button>
+				</mat-menu>
 			</div>
 			<div class="list-item">
                 <button mat-flat-button>
@@ -44,9 +59,19 @@
 		</div>
 
 		<div class="right-section">
-            <button mat-flat-button>                
+            <button mat-icon-button [matMenuTriggerFor]="login_menu">                
                 <mat-icon>account_circle</mat-icon>
             </button>
+			<mat-menu #login_menu>
+				<button mat-menu-item>
+					Login
+					<!-- <mat-icon>person_pin</mat-icon> -->
+				</button>
+				<button mat-menu-item>
+					Sign in
+					<!-- <mat-icon>person_pin</mat-icon> -->
+				</button>
+			</mat-menu>
             <button color="primary" mat-raised-button>Get a Quote</button>
 		</div>
 	</nav>
