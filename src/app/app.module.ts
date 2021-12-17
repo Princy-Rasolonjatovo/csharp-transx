@@ -9,7 +9,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import { MatIconModule} from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule} from '@angular/material/menu';
 import { HomeComponent } from './home/home.component';
+import { InvoiceViewComponent } from './invoice-view/invoice-view.component';
 
 
 // materials
@@ -17,13 +19,15 @@ const MaterialComponents = [
   MatButtonModule,
   MatIconModule,
   MatGridListModule,
+  MatMenuModule,
 ]
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    InvoiceViewComponent
   ],
   imports: [
     BrowserModule,
