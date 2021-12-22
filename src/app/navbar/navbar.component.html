@@ -12,7 +12,7 @@
     <div class="x-spaccer" style="width: 100px"></div>
     <div class="dropdown-list-container">
         <div class="list-item">
-            <button mat-flat-button>
+            <button mat-flat-button routerLink="/home">
                 HOME
             </button>
         </div>
@@ -61,13 +61,13 @@
             <mat-icon>account_circle</mat-icon>
         </button>
         <mat-menu #login_menu>
-            <button mat-menu-item>
+            <button mat-menu-item rouerLink="/Login">
+                <mat-icon>login</mat-icon>
                 Login
-                <!-- <mat-icon>person_pin</mat-icon> -->
             </button>
-            <button mat-menu-item>
-                Sign in
-                <!-- <mat-icon>person_pin</mat-icon> -->
+            <button mat-menu-item routerLink="/login">
+                <mat-icon>how_to_reg</mat-icon>
+                Sign up
             </button>
         </mat-menu>
         <button color="primary" mat-raised-button>Get a Quote</button>
