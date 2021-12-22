@@ -1,0 +1,83 @@
+#invoice-content-wrapper{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background : #F6F8FA;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: relative;
+    grid-auto-rows: 70px 30px 200px auto;
+    gap: 1.5rem;
+    box-sizing: border-box;
+    padding: 1.5rem;
+    // background: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+    background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+    .dash-card{
+        width: 320px;
+        height: 150px;
+        display: grid;
+        grid-template-columns: 60% 40%;
+        box-shadow: 0px 0px 2px 0px grey;
+        padding: 1rem;
+        border-radius: 10px;
+        background: white;
+        .dash-card-left{
+            
+        }
+        mat-chip{
+            padding: .2rem;
+            display: inline-block;
+            cursor: pointer;
+        }
+        span.money-value{
+            display: inline-block;
+            margin-bottom: 1rem !important;
+            color: black;
+            .currency{
+                color: grey;
+            }
+            .floating-number{
+                color: grey;
+            }
+
+        }
+        .dash-card-right{
+            
+        }
+        .with-button-left{
+            position: relative;
+        }
+        .with-button-left::before{
+            content: " ";
+            width: .5em;
+            height: .5em;
+            position: absolute;
+            border-radius: 100%;
+            left: -10px;
+            top: .5em;
+        }
+        .with-button-left-color-blue{
+            color: #025AFF;
+        }
+        .with-button-left-color-blue::before{
+            background: #025AFF;    
+        }
+        .with-button-left-color-orange{
+            color: orange;
+        }
+        .with-button-left-color-orange::before{
+            background: orange;
+        }
+    }
+}
+
+.grid-col-span-2{
+    grid-column: span 2;
+}
+.grid-col-span-3{
+    grid-column: span 3;
+}
+.grid-col-span-4{
+    grid-column: span 4;
+}
