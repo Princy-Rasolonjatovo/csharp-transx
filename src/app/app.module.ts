@@ -12,6 +12,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule} from '@angular/material/menu';
 import { HomeComponent } from './home/home.component';
 import { InvoiceViewComponent } from './invoice-view/invoice-view.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 // materials
@@ -27,7 +28,8 @@ const MaterialComponents = [
   declarations: [
     AppComponent,
     HomeComponent,
-    InvoiceViewComponent
+    InvoiceViewComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
