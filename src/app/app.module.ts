@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {HttpClientModule, HttpClientXsrfModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,11 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatTableModule } from '@angular/material/table';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+
 
 
 import { HomeComponent } from './home/home.component';
@@ -30,6 +36,10 @@ const MaterialComponents = [
   MatCardModule,
   MatChipsModule,
   MatTableModule,
+  MatCheckboxModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatSelectModule,
 ]
 
 
@@ -46,6 +56,11 @@ const MaterialComponents = [
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialComponents,
+    HttpClientModule,
+    HttpClientXsrfModule.withOptions({
+      cookieName: 'csrftoken', 
+      headerName: 'X-CSRFToken'
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
