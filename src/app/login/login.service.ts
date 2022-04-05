@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpResponse, HttpHeaders} from '@angular/common/http';
 import {fromEventPattern, Observable, throwError} from 'rxjs';
 import {catchError, retry} from 'rxjs/operators';
+import { AuthenticationService } from '@app/_services';
+
 
 
 
@@ -25,7 +27,7 @@ export interface IUser{
 const httpHeaderOption = {
 	headers: new HttpHeaders({
         'Content-Type':  'application/json',
-        Authorization: 'X-CSRFToken',
+        // Authorization: 'X-CSRFToken',
         // Authorization : 'Token key_str'
     })
     ,
@@ -35,7 +37,7 @@ const httpHeaderOption = {
 
 // TODO Make a globals files containing this urls
 const api_host = 'localhost';
-const api_port = 8000;
+const api_port = 5001;
 // let api_url = `http://${api_host}:${api_port}/mediamanage/API/v1/registerUser`;
 const api_url = `http://${api_host}:${api_port}/mediamanager/API/v1/`;
 
@@ -44,26 +46,18 @@ const api_url = `http://${api_host}:${api_port}/mediamanager/API/v1/`;
     providedIn : 'root'
 })
 export class UserLoginService{
-    constructor(private http: HttpClient){
+    constructor(private http: HttpClient, private authenticationService: AuthenticationService){
 
     }
 
-    logIn(email_or_username: string, password: string): Observable<any>{
-        const login_url = 'login';
-        const url = `${api_url}${login_url}`;
-        console.log(`url : ${url}`);
-        
-        return this.http.post(url, 
-            {
-                username: email_or_username,
-                password: password
-            },
-            httpHeaderOption
-        ).pipe(
-            catchError(this.errorHandler)
-        );
+    login(emailOrPassword: string, password: string)
+    {
+        return this.authenticationService.Login(emailOrPassword, password);
     }
-
+    logout()
+    {
+        return this.authenticationService.Logout();
+    }
     getCookie(): Observable<any>{
         const cookie_url = 'getCookie';
         const url = `${api_url}${cookie_url}`;

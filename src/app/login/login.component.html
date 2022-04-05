@@ -1,7 +1,7 @@
 <div class="login-form-wrapper">
     <div class="login-form-container">
          <!-- Login  -->
-         <div class="login-form" #loginform>
+         <form class="login-form" #loginform>
              <div class="splash-section login-splash">
                  <!-- <div class="splash-text">Manage your content and protect sensitive datas</div> -->
              </div>
@@ -24,15 +24,14 @@
                             <mat-label>Enter your email</mat-label>
                             <input matInput placeholder="marieduchatier@polar.express.com" #username>
                             <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
-                            <mat-error *ngIf="false">myerrormessage</mat-error>
+                            <mat-error *ngIf="badLogin">wrong loginname or password</mat-error>
                         </mat-form-field>
                     </div>
                     <div class="form-field-block">
                         <mat-form-field appearance="fill">
                             <mat-label>Enter password</mat-label>
                             <input type="password" matInput placeholder="*********" #password>
-                            <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
-                            <mat-error *ngIf="false">myerrormessage</mat-error>
+                            <mat-error *ngIf="badLogin">wrong loginname or password</mat-error>
                         </mat-form-field>
                     </div>
                     
@@ -48,9 +47,9 @@
                      </div>
                  </div>
              </div>
-         </div>
+         </form>
          <!-- Sign in -->
-         <div class="signin-form" #signinForm>
+         <form class="signin-form" #signinForm>
              <div class="splash-section signin-splash">
                  <div class="form-header" >
                      
@@ -192,7 +191,7 @@
                      </div>
                  </div>
              </div>
-         </div>
+            </form>
     </div> 
  </div>
  

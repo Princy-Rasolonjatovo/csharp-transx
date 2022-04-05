@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { UserLoginService } from './login.service';
@@ -9,7 +10,7 @@ import { UserLoginService } from './login.service';
 })
 export class LoginComponent implements OnInit {
   	activeView: string = 'login';
-	badLogin: boolean = false;
+	badLogin: boolean = true;
 	remember_me: boolean = false;
   constructor(private route: Router, private loginManager: UserLoginService) { }
 
@@ -22,7 +23,9 @@ export class LoginComponent implements OnInit {
 		// 	console.log('[QueryCookier] reponse' + response);
 		// });
   }
-  changeView(loginForm: HTMLDivElement, signinForm: HTMLDivElement, viewName: string){
+  
+//   changeView(loginForm: HTMLDivElement, signinForm: HTMLDivElement, viewName: string){
+  changeView(loginForm: HTMLFormElement, signinForm: HTMLFormElement, viewName: string){
 		const loginFormActive = {
 			loginTransform: 'translateX(0%)',
 			signinFormTransform: 'translateX(0%)'
@@ -51,35 +54,26 @@ export class LoginComponent implements OnInit {
 			// pass unknown keyword
 		}
 	}
+	
 	loginRequest(username: HTMLInputElement, password: HTMLInputElement){
 		// TODO Make a post request to server with injected service
 		console.log('click event post')
 		const str_username = username.value.trim();
 		const str_password = password.value;
+		// console.log(`username: ${str_username} password: ${str_password}`);
+		this.loginManager.login(str_username, str_password)
+		.subscribe((response: any) => {
+			console.log(response);
+		}, 
+		err=>{
+			console.log('bobobobo');
+			this.badLogin=true;
+		}
+		);
 		
-		this.loginManager.logIn(str_username, str_password)
-		//! warning: experimental 
-		
-		// .subscribe(
-		// 	(response: any)=>{
-		// 		console.log(`response: ${response}`)
-		// 		console.log(response);
-		// 		if (response['details'] == 'success'){
-		// 			this.badLogin = false;
-		// 			// register user
-		// 			localStorage.setItem('username', response.username);
-		// 			localStorage.setItem('token', response.token);
-		// 			localStorage.setItem('userid', response.pk);
-		// 			// navigate to view
-		// 			this.route.navigate(['/home']);
-		// 		}else if(response['details'] == 'failure'){
-		// 			// display error
-		// 			this.badLogin = true;
-		// 		}
+	}
 
-		// 	},
-		// );
-		//! warning: experimental 
-		this.route.navigate(['/home']);
+	get isBadLogin(){
+		return this.badLogin;
 	}
 }
